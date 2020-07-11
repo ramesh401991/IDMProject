@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="top">
+			<h1	style="color: white; vertical-align: middle; font-family: sans-serif;">Welcome to IDM</h1>
+			<h:link id="home" class="active" value="Home" outcome="index" />
+			<h:link id="admin" value="Administration" outcome="admin" />
+			<h:link id="contact" value="Contact" outcome="contactUs" />
+			<h:link id="about" value="About" outcome="about" />
+		</ui:define>
+		<ui:define name="left">
+			<h:link class="active" value="Introduction" outcome="introduction" />
+			<h:link value="Sailpoint" outcome="sailpoint" />
+			<h:link value="SCIM" outcome="scim" />
+			<h:link value="Okta" outcome="okta" />
+		</ui:define>
+		<ui:define name="content">
+
+			<h2 style="text-align: top;">Welcome to Identity and Access
+				Management</h2>
+
+			<p>Identity and access management (IAM) is the discipline that
+				enables the right individuals to access the right resources at the
+				right times for the right reasons. IAM addresses the
+				mission-critical need to ensure appropriate access to resources
+				across increasingly heterogeneous technology environments, and to
+				meet increasingly rigorous compliance requirements. IAM is a crucial
+				undertaking for any enterprise. It is increasingly business-aligned,
+				and it requires business skills, not just technical expertise.</p>
+
+			<p>Enterprises that develop mature IAM capabilities can reduce
+				their identity management costs and, more importantly, become
+				significantly more agile in supporting new business initiatives.</p>
+
+			<p>This site provides the high level understanding of the various
+				Identity Management Solutions</p>
+
+			<h:graphicImage url="images/idm.jpg" />
+			Slogan: <h:outputLabel value="#{applicationInfo.slogan}"></h:outputLabel>
+			<br />
+	
+			Enter the User name, and then choose Search.
+			<h:form>
+				<h:inputText value="#{user.name}" />
+				<h:commandButton value="Submit" action="#{searchUser.execute}" />
+
+			</h:form>
+
+
+			<h:link value="Contact Us" outcome="contactUs" />
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

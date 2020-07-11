@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="top">
+			<h1
+				style="color: white; vertical-align: middle; font-family: sans-serif;">Welcome
+				to IDM</h1>
+			<h:link id="home" value="Home" outcome="index" />
+			<h:link id="admin" class="active" value="Administration"
+				outcome="admin" />
+			<h:link id="contact" value="Contact" outcome="contactUs" />
+			<h:link id="about" value="About" outcome="about" />
+		</ui:define>
+		<ui:define name="left">
+			<h:link class="active" value="Add User" outcome="addUser" />
+			<h:link value="Search User" outcome="searchUser" />
+			<h:link value="Update User" outcome="updateUser" />
+			<h:link value="Delete User" outcome="deleteUser" />
+		</ui:define>
+		<ui:define name="content">
+
+			<h2 style="text-align: top;">Add New User</h2>
+
+			<p:accordionPanel>
+				<p:tab title="User Profile">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:outputText value="First Name" />
+						<h:inputText id="firstName" required="true" />
+						<h:outputText value="Last Name" />
+						<h:inputText id="lastName" required="true" />
+						<h:outputText value="Date of Birth" />
+						<h:inputText a:type="date" id="dob" required="true" />
+						<h:outputText value="Email" />
+						<h:inputText id="email" required="true" />
+						<h:outputText value="Password" />
+						<h:inputSecret id="password" required="true" />
+						<h:outputText value="Confirm Password" />
+						<h:inputSecret id="confirmPassword" required="true" />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="User Role">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:outputText value="Role" />
+						<h:selectOneMenu id="role" required="true" value="">
+						</h:selectOneMenu>
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="contact">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:outputText value="Address" />
+						<h:inputTextarea id="address" />
+						<h:outputText value="Mobile" />
+						<h:inputText id="mobile"/>
+					</h:panelGrid>
+				</p:tab>
+			</p:accordionPanel>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

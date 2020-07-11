@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="top">
+			<h1	style="color: white; vertical-align: middle; font-family: sans-serif;">Welcome to IDM</h1>
+			<h:link id="home" value="Home" outcome="index" />
+			<h:link id="admin" value="Administration" outcome="admin" />
+			<h:link id="contact" class="active" value="Contact" outcome="contactUs" />
+			<h:link id="about" value="About" outcome="about" />
+		</ui:define>
+		<ui:define name="left">
+			<h:link class="active" value="Contact" outcome="contactUs" />
+		</ui:define>
+		<ui:define name="content">
+
+			<h2 style="text-align: top;">Contact Information</h2>
+
+			<p>
+			<b>Address:</b><br/>
+			#Address Line 1<br/>
+			#Address Line 2<br/>
+			#Address Line 3
+			</p>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

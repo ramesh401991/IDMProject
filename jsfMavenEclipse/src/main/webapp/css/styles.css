@@ -1,0 +1,95 @@
+@charset "ISO-8859-1";
+
+#top {
+	position: fixed;
+	vertical-align: top;
+	/* background-color: #13654a; 
+	background-image: repeating-linear-gradient(to right, rgba(237,237,237,1) 0%, rgba(246,246,246,1) 63%, rgba(255,255,255,1) 100%);*/
+	background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(234,234,234,1) 100%);
+	height: 7em;
+	width: 100%;
+	z-index: 100;
+	left: 0;
+	top: 0;
+}
+
+#left {
+	position: fixed;
+	left: 0;
+	top: 7em;
+	width: 145px;
+	height: 100%;
+	z-index: 100;
+	/*background-color: #f6f6f6;
+	background-image: repeating-linear-gradient(to right, rgba(237,237,237,1) 0%, rgba(237,237,237,1) 0%, rgba(237,237,237,1) 0%);
+	background-color: rgb(13, 13, 13);
+	background: linear-gradient(0deg, rgba(0,0,0,1) 15%, rgba(234,234,234,1) 80%);*/
+	background-color: rgb(13, 13, 13);
+}
+
+#content {
+	top: 7em;
+	position: relative;
+	margin-left: 165px;
+	padding: 5px;
+}
+
+#bottom{
+	position: fixed;
+	bottom:0;
+	z-index: 100;	
+	background: linear-gradient(45deg, rgba(0,0,0,1) 10%, rgba(234,234,234,1) 100%);
+	height: 5em;
+	width: 100%;
+	z-index: 100;
+	left: 0; 
+}
+
+/* Add a black background color to the top navigation */
+
+/* Style the links inside the navigation bar */
+#top a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 5px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+#top a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+#top a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+#left a {
+  float: left;
+  color: #f2f2f2;
+  text-align: left;
+  text-decoration: none;
+  font-size: 17px;
+  width: 90%;
+  left: 0;
+  margin: 3px;
+  border-bottom: 1px solid white;
+}
+
+/* Change the color of links on hover */
+#left a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+#left a.active {
+  background-color: #4CAF50;
+  color: white;
+}
