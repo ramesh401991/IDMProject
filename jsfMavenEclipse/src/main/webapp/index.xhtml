@@ -8,7 +8,9 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="top">
-			<h1	style="color: white; vertical-align: middle; font-family: sans-serif;">Welcome to IDM</h1>
+			<h1
+				style="color: white; vertical-align: middle; font-family: sans-serif;">Welcome
+				to IDM</h1>
 			<h:link id="home" class="active" value="Home" outcome="index" />
 			<h:link id="admin" value="Administration" outcome="admin" />
 			<h:link id="contact" value="Contact" outcome="contactUs" />
@@ -47,7 +49,8 @@
 	
 			Enter the User name, and then choose Search.
 			<h:form>
-				<h:inputText value="#{user.name}" />
+				<h:inputText value="#{user.name}"
+					 />
 				<h:commandButton value="Submit" action="#{searchUser.execute}" />
 
 			</h:form>

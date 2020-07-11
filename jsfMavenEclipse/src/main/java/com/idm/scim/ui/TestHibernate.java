@@ -12,14 +12,14 @@ public class TestHibernate {
 		UserDao userDao = new UserDao();
 		
 		User user = new User("Ramesh","Palla","ramesh40palla@gmail.com");
-		userDao.saveUser(user);
+		userDao.insert(user);
 		
 		user.setFirstName("Ram");
-		userDao.updateUser(user);
+		userDao.update(user);
 		
 		User userTest = userDao.getUserByID(user.getId());
 		
-		List<User> allUsersTest = userDao.getAllUsers();
+		List<User> allUsersTest = userDao.fetchUsers();
 		
 		System.out.println("GetUserByID"+userTest.getFirstName());
 		

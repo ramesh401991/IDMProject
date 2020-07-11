@@ -11,7 +11,7 @@ import com.idm.scim.hibernate.util.HibernateUtil;
 public class UserDao {
 	
 	//Save Users
-	public void saveUser(User user) {
+	public void insert(User user) {
 		Transaction transaction = null;
 		
 		try(Session session=HibernateUtil.getSessionFactory().openSession()){
@@ -33,7 +33,7 @@ public class UserDao {
 	}
 	//get All Users
 	@SuppressWarnings("unchecked")
-	public List<User> getAllUsers() {
+	public List<User> fetchUsers() {
 		Transaction transaction = null;
 		List<User> users = null;
 		try(Session session=HibernateUtil.getSessionFactory().openSession()){
@@ -83,7 +83,7 @@ public class UserDao {
 	
 	//Update User
 	
-	public void updateUser(User user) {
+	public void update(User user) {
 		Transaction transaction = null;
 		
 		try(Session session=HibernateUtil.getSessionFactory().openSession()){
@@ -105,7 +105,7 @@ public class UserDao {
 	}
 	
 	//Delete User
-	public void deleteUser(long id) {
+	public void delete(long id) {
 		Transaction transaction = null;
 		try(Session session=HibernateUtil.getSessionFactory().openSession()){
 			
