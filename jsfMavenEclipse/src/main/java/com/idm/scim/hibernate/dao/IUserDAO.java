@@ -13,11 +13,11 @@ public interface IUserDAO {
 
 	public List<User> fetchUsers();
 
-	public void insert(User user) throws Exception;
+	public String insert(User user) throws Exception;
 	
-	public void update(User user) throws Exception;
+	public String update(User user) throws Exception;
 	
-	public void delete(User user) throws Exception;
+	public String delete(User user) throws Exception;
 	
-	public List<User> getUserByID(long id);
+	public User getUserByID(long id);
 }

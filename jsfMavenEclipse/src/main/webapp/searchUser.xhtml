@@ -28,14 +28,10 @@
 			<h2 style="text-align: top;">Search User</h2>
 			<h:form>
 				<p:panelGrid columns="3" cellpadding="10">
-					<p:outputLabel value="Enter First Name:" />
-					<p:autoComplete value="#{user.name}"
-						completeMethod="#{searchUser.completeUsers}" />
+					<p:outputLabel value="Enter Search filter:" />
+						<p:inputText id="searchFilter" value="#{user.firstName}" />
 					<p:commandButton value="Submit" action="#{searchUser.execute}"
 						ajax="false" />
-
-					<!-- <h:inputText id="firstName" required="true" alt="First Name" />
-					<h:commandButton value="Search" onclick=""></h:commandButton> -->
 				</p:panelGrid>
 			</h:form>
 			<p:dataTable>

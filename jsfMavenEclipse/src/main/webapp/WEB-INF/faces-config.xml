@@ -10,14 +10,14 @@
 </application>
 
 <navigation-rule>
-    <from-view-id>index.xhtml</from-view-id>
+    <from-view-id>searchUser.xhtml</from-view-id>
 	<navigation-case>
 		<from-outcome>search</from-outcome>
-		<to-view-id>results.xhtml</to-view-id>
+		<to-view-id>/searchResults.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
 		<from-outcome>noresults</from-outcome>
-		<to-view-id>noresults.xhtml</to-view-id>
+		<to-view-id>/noresults.xhtml</to-view-id>
 	</navigation-case>
 
 </navigation-rule>
@@ -26,11 +26,24 @@
     <from-view-id>addUser.xhtml</from-view-id>
 	<navigation-case>
 		<from-outcome>success</from-outcome>
-		<to-view-id>success.xhtml</to-view-id>
+		<to-view-id>/success.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
 		<from-outcome>fail</from-outcome>
-		<to-view-id>fail.xhtml</to-view-id>
+		<to-view-id>/fail.xhtml</to-view-id>
+	</navigation-case>
+
+</navigation-rule>
+
+<navigation-rule>
+    <from-view-id>updateUser.xhtml</from-view-id>
+	<navigation-case>
+		<from-outcome>success</from-outcome>
+		<to-view-id>/success.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>fail</from-outcome>
+		<to-view-id>/fail.xhtml</to-view-id>
 	</navigation-case>
 
 </navigation-rule>

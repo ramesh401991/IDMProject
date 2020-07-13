@@ -23,7 +23,10 @@ public interface IUserService {
 	 * @param user with all user information.
 	 * @throws Exception 
 	 */
-	public void save(User user) throws Exception;
+	public String save(User user) throws Exception;
 	
+	public String update(User user) throws Exception;
+	
+	public String Delete(User user) throws Exception;
 	
 }

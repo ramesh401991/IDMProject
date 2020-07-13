@@ -8,31 +8,27 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="top">
-			<h1	style="color: white; vertical-align: middle; font-family: sans-serif;">Welcome to IDM</h1>
+			<h1
+				style="color: white; vertical-align: middle; font-family: sans-serif;">Welcome
+				to IDM</h1>
 			<h:link id="home" value="Home" outcome="index" />
-			<h:link id="admin" class="active" value="Administration" outcome="admin" />
+			<h:link id="admin" class="active" value="Administration"
+				outcome="admin" />
 			<h:link id="contact" value="Contact" outcome="contactUs" />
 			<h:link id="about" value="About" outcome="about" />
 		</ui:define>
 		<ui:define name="left">
 			<h:link value="Add User" outcome="addUser" />
-			<h:link value="Search User" outcome="searchUser" />
+			<h:link class="active" value="Search User" outcome="searchUser" />
 			<h:link value="Update User" outcome="updateUser" />
-			<h:link class="active" value="Delete User" outcome="deleteUser" />
+			<h:link value="Delete User" outcome="deleteUser" />
 		</ui:define>
 		<ui:define name="content">
 
-			<h2 style="text-align: top;">Delete User</h2>
+			<h2 style="text-align: top;">Search User</h2>
 
 			<h:form>
-				<p:panelGrid columns="3" cellpadding="10">
-					<p:outputLabel value="Enter First Name:" />
-					<p:inputText id="searchFilter" value="#{user.firstName}" />
-					<p:commandButton value="Submit" action="#{searchUser.execute}"
-						ajax="false" />
-				</p:panelGrid>
-			</h:form>
-			<h:form>
+
 				<p:accordionPanel>
 					<p:tab title="User Profile">
 						<p:panelGrid columns="2" cellpadding="10">
@@ -68,9 +64,7 @@
 				</p:accordionPanel>
 				<br />
 
-				<p:commandButton value="Delete User" action="#{deleteUser.execute}" />
 			</h:form>
-			
 		</ui:define>
 	</ui:composition>
 </h:body>

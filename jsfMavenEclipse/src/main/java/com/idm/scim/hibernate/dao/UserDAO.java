@@ -1,41 +1,59 @@
 package com.idm.scim.hibernate.dao;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.idm.scim.hibernate.model.User;
+import com.idm.scim.dto.User;
 import com.idm.scim.hibernate.util.HibernateUtil;
 
-public class UserDao {
+@Named("userDAO")
+@SessionScoped
+public class UserDAO implements IUserDAO,Serializable {
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7835183728033049296L;
+	HibernateUtil hibernateUtil = new HibernateUtil();
 	
 	//Save Users
-	public void insert(User user) {
+	public String insert(User user) {
 		Transaction transaction = null;
-		
+		String result = "success";
 		try(Session session=HibernateUtil.getSessionFactory().openSession()){
 			
 			//Start the transaction
 			transaction = session.beginTransaction();
 			
 			//save User object
-			session.save(user);
+			com.idm.scim.hibernate.model.User entityUser = hibernateUtil.mapDTOToEntity(user);
+			session.save(entityUser);
 			
 			//commit transaction
 			transaction.commit();
 			
 		}catch(Exception e){
+			result = "fail";
 			if(transaction != null) {
 				transaction.rollback();
 			}
 		}
+		return result;
 	}
 	//get All Users
 	@SuppressWarnings("unchecked")
 	public List<User> fetchUsers() {
 		Transaction transaction = null;
-		List<User> users = null;
+		List<com.idm.scim.hibernate.model.User> users = null;
+		List<User> dtoUsers = new ArrayList<User>();
 		try(Session session=HibernateUtil.getSessionFactory().openSession()){
 			
 			//Start the transaction
@@ -44,6 +62,15 @@ public class UserDao {
 			//get User object
 			users = session.createQuery("from User").list();
 			
+			User dtoUser;
+			
+			
+			for(com.idm.scim.hibernate.model.User user:users) {
+				dtoUser = new User();
+				dtoUser = hibernateUtil.mapEntityToDTO(user);
+				dtoUsers.add(dtoUser);
+			}
+			
 			//commit transaction
 			transaction.commit();
 			
@@ -52,7 +79,7 @@ public class UserDao {
 				transaction.rollback();
 			}
 		}
-		return users;
+		return dtoUsers;
 	}
 	
 	
@@ -60,14 +87,17 @@ public class UserDao {
 	
 	public User getUserByID(long id) {
 		Transaction transaction = null;
-		User user = null;
+		com.idm.scim.hibernate.model.User user = null;
+		User dtoUser = null;
 		try(Session session=HibernateUtil.getSessionFactory().openSession()){
 			
 			//Start the transaction
 			transaction = session.beginTransaction();
 			
 			//get User object
-			user = session.get(User.class,id);
+			user = session.get(com.idm.scim.hibernate.model.User.class,id);
+			
+			dtoUser = hibernateUtil.mapEntityToDTO(user);
 			
 			//commit transaction
 			transaction.commit();
@@ -77,54 +107,60 @@ public class UserDao {
 				transaction.rollback();
 			}
 		}
-		return user;
+		return dtoUser;
 	}
 	
 	
 	//Update User
 	
-	public void update(User user) {
+	public String update(User user) {
 		Transaction transaction = null;
-		
+		String result = "success";
 		try(Session session=HibernateUtil.getSessionFactory().openSession()){
 			
 			//Start the transaction
 			transaction = session.beginTransaction();
 			
+			com.idm.scim.hibernate.model.User entityUser = hibernateUtil.mapDTOToEntity(user);
+			
 			//save User object
-			session.saveOrUpdate(user);
+			session.saveOrUpdate(entityUser);
 			
 			//commit transaction
 			transaction.commit();
 			
 		}catch(Exception e){
+			result = "fail";
 			if(transaction != null) {
 				transaction.rollback();
 			}
 		}
+		
+		return result;
 	}
 	
 	//Delete User
-	public void delete(long id) {
+	public String delete(User user) {
 		Transaction transaction = null;
+		String result = "success";
 		try(Session session=HibernateUtil.getSessionFactory().openSession()){
 			
 			//Start the transaction
 			transaction = session.beginTransaction();
 			
 			//get User object
-			session.delete(session.get(User.class, id));
+			session.delete(session.get(com.idm.scim.hibernate.model.User.class, user.getId()));
 			
 			//commit transaction
 			transaction.commit();
 			
 		}catch(Exception e){
+			result = "fail";
 			if(transaction != null) {
 				transaction.rollback();
 			}
 		}
-	}
-	
-	
+		return result;
+	}	
 	
 }

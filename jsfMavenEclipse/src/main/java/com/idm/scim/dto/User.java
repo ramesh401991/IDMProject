@@ -3,20 +3,18 @@ package com.idm.scim.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-import org.springframework.web.context.annotation.SessionScope;
-
-
 @Named
-@SessionScope
+@SessionScoped
 public class User implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -559110332013525442L;
-	private String name;
+	//private String name;
 	private String firstName;
 	private String lastName;
 	private Date dob;
@@ -26,6 +24,15 @@ public class User implements Serializable {
 	private String role;
 	private String address;
 	private String mobile;
+	private long id;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	/*
 	 * public User(String name, String firstName, String lastName, Date dob, String
@@ -108,17 +115,14 @@ public class User implements Serializable {
 		this.confirmPassword = confirmPassword;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
+	/*
+	 * public String getName() { return name; }
+	 * 
+	 * public void setName(String name) { this.name = name; }
+	 */
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return name + " " + firstName + " " + lastName + " " + email;
+		return firstName + " " + lastName + " " + email;
 	}
 }
