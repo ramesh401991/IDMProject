@@ -5,14 +5,15 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.context.annotation.Scope;
 
 import com.idm.scim.dto.User;
 import com.idm.scim.service.IUserService;
 
 @Named
-@SessionScope
+@Scope("session")
 public class SearchUser {
+
 
 	@Inject
 	private User user;

@@ -6,11 +6,15 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.springframework.context.annotation.Scope;
+
 import com.idm.scim.dto.User;
 import com.idm.scim.hibernate.dao.IUserDAO;
 
-@Named("userService")
+@Named
+@Scope("session")
 public class UserService implements IUserService {
+
 
 	@Inject
 	IUserDAO userDAO;
@@ -36,6 +40,12 @@ public class UserService implements IUserService {
 		}
 		
 		return returnUsers;
+	}
+
+	@Override
+	public void save(User user) throws Exception {
+		// TODO Auto-generated method stub
+		userDAO.insert(user);
 	}
 
 }

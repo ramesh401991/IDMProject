@@ -18,6 +18,12 @@ public interface IUserService {
 	 */
 	public List<User> filterUsers(String filter);
 	
+	/**
+	 * Creates a user based on provided information
+	 * @param user with all user information.
+	 * @throws Exception 
+	 */
+	public void save(User user) throws Exception;
 	
 	
 }
