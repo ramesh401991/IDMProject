@@ -3,7 +3,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:body>
 	<ui:composition template="template.xhtml">
@@ -52,8 +53,14 @@
 					<p:tab title="User Role">
 						<p:panelGrid columns="2" cellpadding="10">
 							<p:outputLabel value="Role" />
-							<h:selectOneMenu id="role" value="#{user.role}" readonly="true">
-							</h:selectOneMenu>
+							<p:selectOneMenu id="role" value="#{user.role}" disabled="true" style="width:125px">
+									<f:selectItem itemLabel="User" itemValue="user" />
+									<f:selectItem itemLabel="Admin" itemValue="admin" />
+									<f:facet name="footer">
+										<p:separator />
+										<h:outputText value="2 roles" style="font-weight:bold;" />
+									</f:facet>
+							</p:selectOneMenu>
 						</p:panelGrid>
 					</p:tab>
 					<p:tab title="Contact">

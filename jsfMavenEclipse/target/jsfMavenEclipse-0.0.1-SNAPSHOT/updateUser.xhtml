@@ -3,7 +3,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:body>
 	<ui:composition template="template.xhtml">
@@ -23,19 +24,56 @@
 		<ui:define name="content">
 
 			<h2 style="text-align: top;">Update User</h2>
+			<h:form>
+				<p:panelGrid columns="3" cellpadding="10">
+					<p:outputLabel value="Enter First Name:" />
+					<p:inputText id="searchFilter" value="#{user.firstName}" />
+					<p:commandButton value="Submit" action="#{searchUser.execute}"
+						ajax="false" />
+				</p:panelGrid>
+			</h:form>
+			<h:form>
+				<p:accordionPanel>
+					<p:tab title="User Profile">
+						<p:panelGrid columns="2" cellpadding="10">
+							<p:outputLabel value="First Name" />
+							<p:inputText id="firstName" required="true"
+								value="#{user.firstName}" />
+							<p:outputLabel value="Last Name" />
+							<p:inputText id="lastName" required="true"
+								value="#{user.lastName}" />
+							<p:outputLabel value="Date of Birth" />
+							<p:calendar id="button" value="#{user.dob}" showOn="button" />
+							<p:outputLabel value="Email" />
+							<p:inputText id="email" required="true" value="#{user.email}" />
+						</p:panelGrid>
+					</p:tab>
+					<p:tab title="User Role">
+						<p:panelGrid columns="2" cellpadding="10">
+							<p:outputLabel value="Role" />
+							<p:selectOneMenu id="role" value="#{user.role}" style="width:125px">
+									<f:selectItem itemLabel="User" itemValue="user" />
+									<f:selectItem itemLabel="Admin" itemValue="admin" />
+									<f:facet name="footer">
+										<p:separator />
+										<h:outputText value="2 roles" style="font-weight:bold;" />
+									</f:facet>
+							</p:selectOneMenu>
+						</p:panelGrid>
+					</p:tab>
+					<p:tab title="Contact">
+						<p:panelGrid columns="2" cellpadding="10">
+							<p:outputLabel value="Address" />
+							<p:inputTextarea id="address" value="#{user.address}" />
+							<p:outputLabel value="Mobile" />
+							<p:inputText id="mobile" value="#{user.mobile}" />
+						</p:panelGrid>
+					</p:tab>
+				</p:accordionPanel>
+				<br />
 
-			<h:panelGrid columns="3" cellpadding="10">
-				<h:outputLabel value="Enter First Name:"/>
-				<h:inputText id="firstName" required="true"  alt="First Name"/>
-				<h:commandButton value="Search" onclick=""></h:commandButton>
-			</h:panelGrid>
-			
-			<p:dataTable>
-				
-			</p:dataTable>
-			
-			<h:commandButton value="Update User" onclick=""></h:commandButton>
-			
+				<p:commandButton value="Update User" action="#{updateUser.execute}" />
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

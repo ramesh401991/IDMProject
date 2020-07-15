@@ -1,0 +1,17 @@
+com\idm\scim\hibernate\dao\IUserDAO.class
+com\idm\scim\hibernate\util\ConfigurationBean.class
+com\idm\scim\ui\AddUser.class
+com\idm\scim\ui\TestHibernate.class
+com\idm\scim\hibernate\dao\UserDAO.class
+com\idm\scim\restjersey\ScimServices.class
+com\idm\scim\hibernate\util\HibernateUtil.class
+com\idm\scim\ui\UpdateUser.class
+com\idm\scim\hibernate\dao\UserDAOStub.class
+com\idm\scim\hibernate\model\User.class
+com\idm\scim\service\UserService.class
+com\idm\scim\ui\DeleteUser.class
+com\idm\scim\dto\User.class
+com\idm\scim\service\IUserService.class
+com\idm\scim\hibernate\util\ConfigProperties.class
+com\idm\scim\hibernate\util\ConfigProps.class
+com\idm\scim\ui\SearchUser.class

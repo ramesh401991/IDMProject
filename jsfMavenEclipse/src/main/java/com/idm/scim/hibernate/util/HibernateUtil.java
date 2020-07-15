@@ -19,18 +19,18 @@ public class HibernateUtil {
 		if (sessionFactory == null) {
 			try {
 				Configuration configuration = new Configuration();
-
+				ConfigProperties.LoadPropValues();
 				// Hibernate settings equivalent to hibernate.cfg.xml's properties
 				Properties settings = new Properties();
-				settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-				settings.put(Environment.URL, "jdbc:mysql://13.59.182.84:3306/scimDB?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC");
-				settings.put(Environment.USER, "scimUser");
-				settings.put(Environment.PASS, "P@ssw0rd");
-				settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+				settings.put(Environment.DRIVER, ConfigProperties.MYSQL_DRIVER);
+				settings.put(Environment.URL, ConfigProperties.MYSQL_URL);
+				settings.put(Environment.USER, ConfigProperties.MYSQL_USER);
+				settings.put(Environment.PASS, ConfigProperties.MYSQL_PASS);
+				settings.put(Environment.DIALECT, ConfigProperties.MYSQL_DIALECT);
 
-				settings.put(Environment.SHOW_SQL, "true");
+				settings.put(Environment.SHOW_SQL, ConfigProperties.MYSQL_SHOW_SQL);
 
-				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, ConfigProperties.MYSQL_CURRENT_SESSION_CONTEXT_CLASS);
 
 				settings.put(Environment.HBM2DDL_AUTO, Action.VALIDATE);
 

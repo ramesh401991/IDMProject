@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15940717685970" configfile="/jsfMavenEclipse/src/main/webapp/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15940717685970" configfile="/jsfMavenEclipse/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="370" id="pf15945747593200" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15945747593221 pf15945747593222" path="searchUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="results.xhtml" x="338" y="178" id="pf15945747593223" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15945747593221" path="/searchResults.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="noresults.xhtml" x="338" y="562" id="pf15945747593234" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf15945747593222" path="/noresults.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="addUser.xhtml" x="122" y="1138" id="pf15946751505365" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf15946751505366 pf15946751505367" path="addUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="success.xhtml" x="338" y="946" id="pf15946751505368" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf15946751505366" path="/success.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="fail.xhtml" x="338" y="1330" id="pf15946751505369" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf15946751505367" path="/fail.xhtml"/>
+  <links id="pf15945747593221" target="pf15945747593223" source="pf15945747593200" outcome="search"/>
+  <links id="pf15945747593222" target="pf15945747593234" source="pf15945747593200" outcome="noresults"/>
+  <links id="pf15946751505366" target="pf15946751505368" source="pf15946751505365" outcome="success"/>
+  <links id="pf15946751505367" target="pf15946751505369" source="pf15946751505365" outcome="fail"/>
+</pageflow:Pageflow>

@@ -8,9 +8,12 @@
 <h:body>
 	<ui:composition template="template.xhtml">
 		<ui:define name="top">
-			<h1	style="color: white; vertical-align: middle; font-family: sans-serif;">Welcome to IDM</h1>
+			<h1
+				style="color: white; vertical-align: middle; font-family: sans-serif;">Welcome
+				to IDM</h1>
 			<h:link id="home" value="Home" outcome="index" />
-			<h:link id="admin" class="active" value="Administration" outcome="admin" />
+			<h:link id="admin" class="active" value="Administration"
+				outcome="admin" />
 			<h:link id="contact" value="Contact" outcome="contactUs" />
 			<h:link id="about" value="About" outcome="about" />
 		</ui:define>
@@ -23,17 +26,18 @@
 		<ui:define name="content">
 
 			<h2 style="text-align: top;">Search User</h2>
-
-			<h:panelGrid columns="3" cellpadding="10">
-				<h:outputLabel value="Enter First Name:"/>
-				<h:inputText id="firstName" required="true"  alt="First Name"/>
-				<h:commandButton value="Search" onclick=""></h:commandButton>
-			</h:panelGrid>
-			
+			<h:form>
+				<p:panelGrid columns="3" cellpadding="10">
+					<p:outputLabel value="Enter Search filter:" />
+						<p:inputText id="searchFilter" value="#{user.firstName}" />
+					<p:commandButton value="Submit" action="#{searchUser.execute}"
+						ajax="false" />
+				</p:panelGrid>
+			</h:form>
 			<p:dataTable>
-				
+
 			</p:dataTable>
-			
+
 		</ui:define>
 	</ui:composition>
 </h:body>

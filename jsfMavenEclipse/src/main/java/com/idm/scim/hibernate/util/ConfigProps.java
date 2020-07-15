@@ -1,0 +1,6 @@
+package com.idm.scim.hibernate.util;
+
+public enum ConfigProps {
+
+	MYSQL_DRIVER,MYSQL_URL,MYSQL_USER,MYSQL_PASS,MYSQL_DIALECT,MYSQL_SHOW_SQL,MYSQL_CURRENT_SESSION_CONTEXT_CLASS
+}
