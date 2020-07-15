@@ -39,6 +39,9 @@
 							<p:outputLabel value="Last Name" />
 							<p:inputText id="lastName" required="true"
 								value="#{user.lastName}" />
+							<p:outputLabel value="UserName" />
+								<p:inputText id="userName" readonly="true"
+								value="#{user.userName}" />
 							<p:outputLabel value="Date of Birth" />
 							<p:calendar id="button" value="#{user.dob}" showOn="button" />
 							<p:outputLabel value="Email" />
@@ -54,13 +57,14 @@
 					<p:tab title="User Role">
 						<p:panelGrid columns="2" cellpadding="10">
 							<p:outputLabel value="Role" />
-							<p:selectOneMenu id="role" value="#{user.role}" style="width:125px">
-									<f:selectItem itemLabel="User" itemValue="user" />
-									<f:selectItem itemLabel="Admin" itemValue="admin" />
-									<f:facet name="footer">
-										<p:separator />
-										<h:outputText value="2 roles" style="font-weight:bold;" />
-									</f:facet>
+							<p:selectOneMenu id="role" value="#{user.role}"
+								style="width:125px">
+								<f:selectItem itemLabel="User" itemValue="user" />
+								<f:selectItem itemLabel="Admin" itemValue="admin" />
+								<f:facet name="footer">
+									<p:separator />
+									<h:outputText value="2 roles" style="font-weight:bold;" />
+								</f:facet>
 							</p:selectOneMenu>
 						</p:panelGrid>
 					</p:tab>

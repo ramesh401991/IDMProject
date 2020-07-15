@@ -61,6 +61,12 @@ public class HibernateUtil {
 		returnUser.setPassword(user.getPassword());
 		returnUser.setRole(user.getRole());
 		returnUser.setId(user.getId());
+		returnUser.setUserName(user.getUserName());
+		if(user.getUserName()==null || user.getUserName().isEmpty()) {
+			returnUser.setUserName(user.getFirstName().charAt(0)+user.getLastName());
+		}else {
+			returnUser.setUserName(user.getUserName());
+		}
 
 		return returnUser;
 	}
@@ -77,6 +83,7 @@ public class HibernateUtil {
 		returnUser.setMobile(user.getMobile());
 		returnUser.setRole(user.getRole());
 		returnUser.setId(user.getId());
+		returnUser.setUserName(user.getUserName());
 
 		return returnUser;
 	}

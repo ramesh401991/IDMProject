@@ -24,7 +24,10 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name = "email")
+	@Column(name = "user_name",unique = true)
+	private String userName;
+	
+	@Column(name = "email",unique = true)
 	private String email;
 
 	@Column(name = "dob")
@@ -128,6 +131,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }

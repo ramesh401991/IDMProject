@@ -2,6 +2,7 @@ package com.idm.scim.hibernate.dao;
 
 import java.util.List;
 
+import com.idm.scim.dto.Credentials;
 import com.idm.scim.dto.User;
 
 /**
@@ -20,4 +21,6 @@ public interface IUserDAO {
 	public String delete(User user) throws Exception;
 	
 	public User getUserByID(long id);
+	
+	public boolean validateUser(Credentials creds) throws Exception;
 }

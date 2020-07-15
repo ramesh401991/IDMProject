@@ -17,6 +17,7 @@ public class User implements Serializable {
 	//private String name;
 	private String firstName;
 	private String lastName;
+	private String userName;
 	private Date dob;
 	private String email;
 	private String password;
@@ -113,6 +114,14 @@ public class User implements Serializable {
 
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	/*

@@ -11,6 +11,7 @@ import org.json.JSONObject;
 public class ScimServices {
 
 	@GET
+	@Secured
 	@Produces("application/scim+json")
 	public Response users() {
 		JSONObject jsonObject = new JSONObject();
@@ -23,19 +24,5 @@ public class ScimServices {
 		String result = "@Produces(\"application/json\") Output: \n\nF to C Converter Output: \n\n" + jsonObject;
 		return Response.status(200).entity(result).build();
 	}
-
-	/*
-	 * @GET
-	 * 
-	 * @Produces("application/xml") public String convertCtoF() {
-	 * 
-	 * Double fahrenheit; Double celsius = 36.8; fahrenheit = ((celsius * 9) / 5) +
-	 * 32;
-	 * 
-	 * String result =
-	 * "@Produces(\"application/xml\") Output: \n\nC to F Converter Output: \n\n" +
-	 * fahrenheit; return "<ctofservice>" + "<celsius>" + celsius + "</celsius>" +
-	 * "<ctofoutput>" + result + "</ctofoutput>" + "</ctofservice>"; }
-	 */
 
 }

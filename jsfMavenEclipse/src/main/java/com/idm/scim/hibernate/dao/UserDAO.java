@@ -10,6 +10,7 @@ import javax.inject.Named;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.idm.scim.dto.Credentials;
 import com.idm.scim.dto.User;
 import com.idm.scim.hibernate.util.HibernateUtil;
 
@@ -161,6 +162,35 @@ public class UserDAO implements IUserDAO,Serializable {
 			}
 		}
 		return result;
+	}
+	@Override
+	public boolean validateUser(Credentials creds) {
+		Transaction transaction = null;
+		com.idm.scim.hibernate.model.User user = null;
+
+		try(Session session=HibernateUtil.getSessionFactory().openSession()){
+			
+			//Start the transaction
+			transaction = session.beginTransaction();
+			
+			//get User object
+			user = (com.idm.scim.hibernate.model.User)session.createQuery("FROM User U WHERE U.userName = :userName").setParameter("userName", creds.getUsername()).uniqueResult();
+			
+			if(user!=null && user.getPassword().equals(creds.getPassword())) {
+				return true;
+			}
+			
+			//commit transaction
+			transaction.commit();
+			
+		}catch(Exception e){
+			if(transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}		
+		
+		return false;
 	}	
 	
 }
