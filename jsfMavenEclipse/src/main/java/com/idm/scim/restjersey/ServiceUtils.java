@@ -11,6 +11,8 @@ import com.idm.scim.dto.Credentials;
 import com.idm.scim.hibernate.dao.IUserDAO;
 import com.idm.scim.hibernate.dao.UserDAO;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -36,11 +38,10 @@ public class ServiceUtils {
 		// Return the issued token
 		JwtBuilder builder = null;
 		try {
-			long ttlMillis = 5000;
+			long ttlMillis = 1800000;
 
 			long nowMillis = System.currentTimeMillis();
 			Date now = new Date(nowMillis);
-
 
 			// Let's set the JWT Claims
 			builder = Jwts.builder().setId(UUID.randomUUID().toString()).setIssuedAt(now).setSubject(username).setIssuer("com.idm.scim").signWith(getSigningKey());
@@ -58,30 +59,24 @@ public class ServiceUtils {
 		return builder.compact();
 
 	}
-	
+
 	public static void validateToken(String token) throws Exception {
 		// Check if the token was issued by the server and if it's not expired
 		// Throw an Exception if the token is invalid
 		// This line will throw an exception if it is not a signed JWS (as expected)
 		// The JWT signature algorithm we will be using to sign the token
-		try {
-
-			assert Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token) != null;
-		
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		Jws<Claims> jws = Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);
 
 	}
-	
+
 	public static Key getSigningKey() {
-		
+
 		SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 		byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(ServiceUtils.SECRET_KEY);
 		Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
-		
+
 		return signingKey;
-		
+
 	}
 
 }

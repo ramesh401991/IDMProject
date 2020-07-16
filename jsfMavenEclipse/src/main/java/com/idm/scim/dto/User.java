@@ -6,9 +6,12 @@ import java.util.Date;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.unboundid.scim2.common.BaseScimResource;
+
 @Named
 @SessionScoped
-public class User implements Serializable {
+public class User extends BaseScimResource implements Serializable  {
 
 	/**
 	 * 
@@ -20,18 +23,20 @@ public class User implements Serializable {
 	private String userName;
 	private Date dob;
 	private String email;
+	@JsonIgnore
 	private String password;
+	@JsonIgnore
 	private String confirmPassword;
 	private String role;
 	private String address;
 	private String mobile;
-	private long id;
+	private String id;
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

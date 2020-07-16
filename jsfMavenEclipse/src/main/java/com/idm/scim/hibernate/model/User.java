@@ -49,10 +49,11 @@ public class User {
 		super();
 	}
 
-	public User(String firstName, String lastName, String email, Date dob, String password, String role, String address, String mobile) {
+	public User(String firstName, String lastName, String email, Date dob, String password, String role, String address, String mobile, String userName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.userName = userName;
 		this.email = email;
 		this.dob = dob;
 		this.password = password;

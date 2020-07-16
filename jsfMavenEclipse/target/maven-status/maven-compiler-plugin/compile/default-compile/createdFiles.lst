@@ -8,6 +8,7 @@ com\idm\scim\restjersey\ScimServices.class
 com\idm\scim\hibernate\util\HibernateUtil.class
 com\idm\scim\ui\UpdateUser.class
 com\idm\scim\hibernate\dao\UserDAOStub.class
+com\idm\scim\restjersey\UserResourceEndpoint.class
 com\idm\scim\dto\Credentials.class
 com\idm\scim\restjersey\AuthenticationFilter.class
 com\idm\scim\hibernate\model\User.class

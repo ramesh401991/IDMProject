@@ -30,7 +30,7 @@ public class AuthenticationEndpoint {
 			String token = ServiceUtils.issueToken(credentials.getUsername());
 
 			jsonToken.put("token", token);
-			jsonToken.put("expiry", "5000");
+			jsonToken.put("expiry", "30 min");
 
 			// Return the token on the response
 			return Response.status(200).entity(jsonToken.toString()).build();

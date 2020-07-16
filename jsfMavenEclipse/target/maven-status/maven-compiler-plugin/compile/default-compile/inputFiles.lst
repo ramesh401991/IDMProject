@@ -5,6 +5,7 @@ F:\Ramesh\SCIM\git\jsfMavenEclipse\src\main\java\com\idm\scim\dto\User.java
 F:\Ramesh\SCIM\git\jsfMavenEclipse\src\main\java\com\idm\scim\hibernate\util\HibernateUtil.java
 F:\Ramesh\SCIM\git\jsfMavenEclipse\src\main\java\com\idm\scim\service\IUserService.java
 F:\Ramesh\SCIM\git\jsfMavenEclipse\src\main\java\com\idm\scim\dto\Credentials.java
+F:\Ramesh\SCIM\git\jsfMavenEclipse\src\main\java\com\idm\scim\restjersey\UserResourceEndpoint.java
 F:\Ramesh\SCIM\git\jsfMavenEclipse\src\main\java\com\idm\scim\ui\UpdateUser.java
 F:\Ramesh\SCIM\git\jsfMavenEclipse\src\main\java\com\idm\scim\hibernate\dao\UserDAO.java
 F:\Ramesh\SCIM\git\jsfMavenEclipse\src\main\java\com\idm\scim\hibernate\dao\UserDAOStub.java

@@ -35,6 +35,7 @@ public class SearchUser {
 			this.user.setPassword(filterUsers.get(0).getPassword());
 			this.user.setRole(filterUsers.get(0).getRole());
 			this.user.setId(filterUsers.get(0).getId());
+			this.user.setUserName(filterUsers.get(0).getUserName());
 			return "search";
 		}else {
 			return "noresults";
