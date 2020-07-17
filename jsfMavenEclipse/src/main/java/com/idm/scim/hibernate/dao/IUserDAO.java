@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.idm.scim.dto.Credentials;
 import com.idm.scim.dto.User;
+import com.unboundid.scim2.common.types.Group;
 
 /**
  * IUserDAO includes all CRUD operations related to a user and its entities
@@ -23,4 +24,6 @@ public interface IUserDAO {
 	public User getUserByID(long id);
 	
 	public boolean validateUser(Credentials creds) throws Exception;
+	
+	public List<Group> fetchGroups();
 }

@@ -60,7 +60,7 @@ public class HibernateUtil {
 		returnUser.setMobile(user.getMobile());
 		returnUser.setPassword(user.getPassword());
 		returnUser.setRole(user.getRole());
-		returnUser.setId(Long.valueOf(user.getId()));
+		returnUser.setId(user.getId() != null? Long.valueOf(user.getId()):returnUser.getId());
 		returnUser.setUserName(user.getUserName());
 		if(user.getUserName()==null || user.getUserName().isEmpty()) {
 			returnUser.setUserName(user.getFirstName().charAt(0)+user.getLastName());
