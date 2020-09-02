@@ -1,6 +1,7 @@
 package com.idm.scim.restjersey;
 
 import java.security.Key;
+import java.util.Base64;
 import java.util.Date;
 import java.util.UUID;
 
@@ -66,6 +67,17 @@ public class ServiceUtils {
 		// This line will throw an exception if it is not a signed JWS (as expected)
 		// The JWT signature algorithm we will be using to sign the token
 		Jws<Claims> jws = Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);
+
+	}
+	
+	public static void validateCredentails(String token) throws Exception {
+		byte[] decodedBytes = Base64.getDecoder().decode(token);
+		String decodedString = new String(decodedBytes);
+		Credentials creds = new Credentials();
+		String[] authCreds = decodedString.split(":");
+		creds.setUsername(authCreds[0]);
+		creds.setPassword(authCreds[1]);
+		authenticate(creds);
 
 	}
 

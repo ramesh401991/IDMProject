@@ -129,7 +129,7 @@ public class UserDAO implements IUserDAO, Serializable {
 			transaction.commit();
 
 		} catch (Exception e) {
-			result = "fail";
+			result = "fail - " + e.getMessage().toString();
 			if (transaction != null) {
 				transaction.rollback();
 			}
@@ -223,6 +223,36 @@ public class UserDAO implements IUserDAO, Serializable {
 			}
 		}
 		return groups;
+	}
+
+	@Override
+	public User getUserByUserName(String userName) {
+		Transaction transaction = null;
+		com.idm.scim.hibernate.model.User user = null;
+		User dtoUser = null;
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+
+			// Start the transaction
+			transaction = session.beginTransaction();
+
+			// get User object
+			user = (com.idm.scim.hibernate.model.User) session.createQuery("FROM User U WHERE U.userName = :userName").setParameter("userName", userName).uniqueResult();
+
+			if(user != null) {
+				dtoUser = hibernateUtil.mapEntityToDTO(user);						
+			}else {
+				//throw new Exception("User not Found");
+			}
+
+			// commit transaction
+			transaction.commit();
+
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+		}
+		return dtoUser;
 	}
 
 }

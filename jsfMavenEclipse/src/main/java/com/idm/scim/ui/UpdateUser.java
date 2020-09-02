@@ -22,6 +22,9 @@ public class UpdateUser {
 		String returnValue = "fail";
 		try {
 			returnValue = userService.update(user);
+			if(returnValue.contains("fail")) {
+				returnValue = "fail";	
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -23,6 +23,8 @@ public interface IUserDAO {
 	
 	public User getUserByID(long id);
 	
+	public User getUserByUserName(String userName);
+	
 	public boolean validateUser(Credentials creds) throws Exception;
 	
 	public List<Group> fetchGroups();

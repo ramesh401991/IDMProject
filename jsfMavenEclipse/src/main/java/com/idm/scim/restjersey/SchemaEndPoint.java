@@ -10,4 +10,6 @@ import com.unboundid.scim2.server.resources.SchemasEndpoint;
 @Path("Schemas")
 public class SchemaEndPoint extends SchemasEndpoint {
 
+	
+
 }
